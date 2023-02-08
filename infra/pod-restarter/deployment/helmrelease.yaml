@@ -14,7 +14,7 @@ spec:
         namespace: flux-system
   values:
     podRestarter:
-      eventReason: BackOff
+      eventReason: "BackOff"
       eventMessage: Back-off pulling image
       pollInterval: 30
-      namespace: default
+      namespace: "default"
