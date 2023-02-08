@@ -1,0 +1,21 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: pod-restarter
+spec:
+  interval: 1m0s
+  releaseName: pod-restarter
+  chart:
+    spec:
+      chart: ./infra/helm_chart
+      sourceRef:
+        kind: GitRepository
+        name: pod-restarter
+        namespace: flux-system
+      version: 0.1.0
+  values:
+    podRestarter:
+      eventReason: "BackOff"
+      eventMessage: Back-off pulling image
+      pollInterval: 30
+      namespace: "default"
