@@ -7,7 +7,7 @@ spec:
   releaseName: go-demo-app
   chart:
     spec:
-      chart: ./infra/helm_chart
+      chart: ./infra/go-demo-app
       sourceRef:
         kind: GitRepository
         name: go-demo-app
