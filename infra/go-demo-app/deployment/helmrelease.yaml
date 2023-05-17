@@ -14,4 +14,5 @@ spec:
         namespace: flux-system
   values:
     image:
-      tag: f834db4c6f20d72a8e2d76ac1d46ee8446d570b2
+      repository: australia-southeast2-docker.pkg.dev/dazzling-tiger-384923/cmek-container-images/dev/go-demo-app # {"$imagepolicy": "flux-system:go-demo-app"}
+      tag: "0.1.4" # {"$imagepolicy": "flux-system:go-demo-app:tag"}

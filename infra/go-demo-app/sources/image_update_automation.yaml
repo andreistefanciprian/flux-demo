@@ -1,0 +1,47 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImageRepository
+metadata:
+  name: go-demo-app
+  namespace: flux-system
+spec:
+  image: australia-southeast2-docker.pkg.dev/dazzling-tiger-384923/cmek-container-images/dev/go-demo-app
+  interval: 1m0s
+  secretRef:
+    name: regcred
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImagePolicy
+metadata:
+  name: go-demo-app
+  namespace: flux-system
+spec:
+  imageRepositoryRef:
+    name: go-demo-app
+  policy:
+    semver:
+      range: 5.0.x
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImageUpdateAutomation
+metadata:
+  name: flux-system
+  namespace: flux-system
+spec:
+  interval: 1m0s
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  git:
+    checkout:
+      ref:
+        branch: main
+    commit:
+      author:
+        email: fluxcdbot@users.noreply.github.com
+        name: fluxcdbot
+      messageTemplate: '{{range .Updated.Images}}{{println .}}{{end}}'
+    push:
+      branch: main
+  update:
+    path: ./clusters/home
+    strategy: Setters
