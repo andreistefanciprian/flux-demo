@@ -4,7 +4,7 @@ metadata:
   name: descheduler
 spec:
   interval: 1m0s
-  releaseName: 
+  releaseName: descheduler
   chart:
     spec:
       chart: descheduler
