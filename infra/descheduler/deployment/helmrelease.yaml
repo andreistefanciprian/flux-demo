@@ -21,3 +21,4 @@ spec:
             podsHavingTooManyRestarts:
               podRestartThreshold: 10
               includingInitContainers: true
+    priorityClassName: high-priority-nonpreempting
