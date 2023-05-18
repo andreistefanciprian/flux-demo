@@ -1,0 +1,23 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: descheduler
+spec:
+  interval: 1m0s
+  releaseName: 
+  chart:
+    spec:
+      chart: descheduler
+      sourceRef:
+        kind: HelmRepository
+        name: descheduler
+        namespace: flux-system
+  values:
+    kind: Deployment
+    deschedulerPolicy:
+      strategies:
+        RemovePodsHavingTooManyRestarts:
+          params:
+            podsHavingTooManyRestarts:
+              podRestartThreshold: 10
+              includingInitContainers: true
