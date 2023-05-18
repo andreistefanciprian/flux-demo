@@ -24,4 +24,5 @@ kubectl get helmreleases -A
 kubectl get gitrepositories -A
 kubectl get imagerepositories -A
 kubectl get imageupdateautomations -A
+kubectl -n descheduler logs -l app.kubernetes.io/instance=descheduler -f
 ```
