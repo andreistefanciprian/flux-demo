@@ -29,7 +29,7 @@ spec:
               - "ImagePullBackOff"
               - "FailedCreatePodSandBox"
             includingInitContainers: true
-            excludeOwnerKinds:
-            - "DaemonSet"
+            # excludeOwnerKinds:
+            # - "DaemonSet"
             minPodLifetimeSeconds: 60
     priorityClassName: high-priority-nonpreempting
