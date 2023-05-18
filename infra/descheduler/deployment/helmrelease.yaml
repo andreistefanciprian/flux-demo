@@ -19,6 +19,6 @@ spec:
         RemovePodsHavingTooManyRestarts:
           params:
             podsHavingTooManyRestarts:
-              podRestartThreshold: 10
+              podRestartThreshold: 5
               includingInitContainers: true
     priorityClassName: high-priority-nonpreempting
