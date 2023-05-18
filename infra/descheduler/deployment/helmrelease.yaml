@@ -21,4 +21,15 @@ spec:
             podsHavingTooManyRestarts:
               podRestartThreshold: 5
               includingInitContainers: true
+        RemoveFailedPods:
+          enabled: true
+          params:
+            reasons:
+              - "CrashLoopBackOff"
+              - "ImagePullBackOff"
+              - "FailedCreatePodSandBox"
+            includingInitContainers: true
+            excludeOwnerKinds:
+            - "DaemonSet"
+            minPodLifetimeSeconds: 60
     priorityClassName: high-priority-nonpreempting
