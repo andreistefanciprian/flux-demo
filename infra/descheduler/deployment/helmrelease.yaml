@@ -33,3 +33,7 @@ spec:
             # - "DaemonSet"
             minPodLifetimeSeconds: 60
     priorityClassName: high-priority-nonpreempting
+    service:
+      enabled: true
+    serviceMonitor:
+      enabled: true
