@@ -7,7 +7,7 @@ spec:
   releaseName: ingress-gateway
   chart:
     spec:
-      chart: istio/gateway
+      chart: gateway
       sourceRef:
         kind: HelmRepository
         name: istio
