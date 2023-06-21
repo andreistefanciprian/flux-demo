@@ -3,6 +3,8 @@
 
 Explore gitops kubernetes deployments with fluxcd.
 
+The k8s resources associated with this repository can be deployed in the private k8s cluster (GKE) documented [here](https://github.com/andreistefanciprian/terraform-kubernetes-gke-cluster).
+
 ```
 export GITHUB_TOKEN=<GITHUB_TOKEN_WITH_REPO_PERMISSIONS>
 export GITHUB_USER=andreistefanciprian
@@ -25,5 +27,7 @@ kubectl get helmreleases -A
 kubectl get gitrepositories -A
 kubectl get imagerepositories -A
 kubectl get imageupdateautomations -A
+
+kubectl -n flux-system logs -l app=helm-controller -f
 kubectl -n descheduler logs -l app.kubernetes.io/instance=descheduler -f
 ```
