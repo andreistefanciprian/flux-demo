@@ -1,9 +1,17 @@
 
-#### Description
+# Gitops kubernetes deployments with fluxcd
 
-Explore gitops kubernetes deployments with fluxcd.
+The k8s resources associated with this repository can be deployed in a [private GKE cluster](https://github.com/andreistefanciprian/terraform-kubernetes-gke-cluster).
 
-The k8s resources associated with this repository can be deployed in the private k8s cluster (GKE) documented [here](https://github.com/andreistefanciprian/terraform-kubernetes-gke-cluster).
+K8s resources to be deployed with flux:
+* fluxcd
+* istio
+* prometheus
+* [go-demo-app](https://github.com/andreistefanciprian/go-demo-app)
+* [pod-restarter](https://github.com/andreistefanciprian/pod-restarter-go)
+* [descheduler](https://github.com/kubernetes-sigs/descheduler)
+
+## Deploy flux and other k8s resources to GKE cluster
 
 ```
 export GITHUB_TOKEN=<GITHUB_TOKEN_WITH_REPO_PERMISSIONS>
@@ -19,8 +27,12 @@ flux bootstrap github \
   --personal \
   --token-auth \
   --reconcile=true
+```
 
-# debug commands
+## Debug commands
+
+```
+# check flux k8s objects status
 kubectl get kustomizations -A
 kubectl get helmrepositories -A
 kubectl get helmreleases -A
