@@ -4,3 +4,4 @@ resources:
 - sources
 - istiod
 - ingress-gateway
+- egress-gateway
