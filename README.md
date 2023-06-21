@@ -20,6 +20,7 @@ flux bootstrap github \
 
 # debug commands
 kubectl get kustomizations -A
+kubectl get helmrepositories -A
 kubectl get helmreleases -A
 kubectl get gitrepositories -A
 kubectl get imagerepositories -A
