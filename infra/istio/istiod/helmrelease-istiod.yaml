@@ -13,4 +13,6 @@ spec:
         name: istio
         namespace: flux-system
   values:
+    meshConfig:
+      accessLogFile: /dev/stdout
   
