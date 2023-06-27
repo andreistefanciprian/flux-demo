@@ -16,4 +16,5 @@ spec:
     #  enables access logging for the entire mesh
     meshConfig:
       accessLogFile: /dev/stdout
+      accessLogEncoding: JSON
   
