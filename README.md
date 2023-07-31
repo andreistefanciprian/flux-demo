@@ -7,6 +7,7 @@ K8s resources to be deployed with flux:
 * fluxcd
 * istio
 * prometheus
+* [cert-manager](https://cert-manager.io/docs/installation/helm/) (used for automatic management and issuance of TLS certificates)
 * [go-demo-app](https://github.com/andreistefanciprian/go-demo-app)
 * [pod-restarter](https://github.com/andreistefanciprian/pod-restarter-go)
 * [descheduler](https://github.com/kubernetes-sigs/descheduler)
