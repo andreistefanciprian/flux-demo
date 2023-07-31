@@ -12,6 +12,9 @@ spec:
         kind: HelmRepository
         name: istio
         namespace: flux-system
+  dependsOn:
+    - name: istio-system/istio
+    - name: istio-system/istiod
   values:
     service:
       # Egress gateways do not need an external LoadBalancer IP
