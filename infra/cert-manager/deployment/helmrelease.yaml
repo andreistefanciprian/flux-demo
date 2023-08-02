@@ -21,3 +21,5 @@ spec:
     global:
       priorityClassName: high-priority-nonpreempting
     installCRDs: true
+    # When this flag is enabled, secrets will be automatically removed when the certificate resource is deleted
+    enableCertificateOwnerRef: true
