@@ -15,4 +15,4 @@ spec:
   values:
     image:
       repository: andreistefanciprian/pod-labeler-k8s-webhook
-      tag: 64af63e3ded1e4ea0a4516326b59dea5ce587ee0-6 # {"$imagepolicy": "flux-system:pod-labeler:tag"}
+      tag: 64af63e3ded1e4ea0a4516326b59dea5ce587ee0-7 # {"$imagepolicy": "flux-system:pod-labeler:tag"}
