@@ -14,5 +14,5 @@ spec:
         namespace: flux-system
   values:
     image:
-      repository: andreistefanciprian/pod-labeler-k8s-webhook # {"$imagepolicy": "flux-system:pod-labeler"}
-      tag: ed366f9f68615f97d09398a126d8d69edc9cc6cb # {"$imagepolicy": "flux-system:pod-labeler:tag"}
+      repository: andreistefanciprian/pod-labeler-k8s-webhook:64af63e3ded1e4ea0a4516326b59dea5ce587ee0-6 # {"$imagepolicy": "flux-system:pod-labeler"}
+      tag: 64af63e3ded1e4ea0a4516326b59dea5ce587ee0-6 # {"$imagepolicy": "flux-system:pod-labeler:tag"}
