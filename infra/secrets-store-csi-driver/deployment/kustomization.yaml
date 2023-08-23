@@ -2,5 +2,6 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: secrets-store-csi-driver
 resources:
-- helmrelease.yaml
+- helmrelease-csi-driver.yaml
+- helmrelease-gcp-plugin.yaml
 - namespace.yaml
