@@ -42,6 +42,16 @@ kubectl get gitrepositories -A
 kubectl get imagerepositories -A
 kubectl get imageupdateautomations -A
 
+helm list -A
+helm get manifest <releaseName>
+
+# delete one of the apps
+kubectl delete kustomization secrets-store-csi-driver -n flux-system
+
+# reconcile app
+flux reconcile kustomization secrets-store-csi-driver --with-source
+
+# logs
 kubectl -n flux-system logs -l app=helm-controller -f
 kubectl -n descheduler logs -l app.kubernetes.io/instance=descheduler -f
 
