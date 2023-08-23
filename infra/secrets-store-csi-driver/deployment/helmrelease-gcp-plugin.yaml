@@ -1,0 +1,15 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: secrets-store-csi-driver-provider-gcp
+spec:
+  interval: 1m0s
+  releaseName: secrets-store-csi-driver-provider-gcp
+  chart:
+    spec:
+      chart: ./charts/secrets-store-csi-driver-provider-gcp
+      sourceRef:
+        kind: GitRepository
+        name: secrets-store-csi-driver-provider-gcp
+        namespace: flux-system
+  values:
