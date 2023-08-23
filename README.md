@@ -11,6 +11,7 @@ K8s resources to be deployed with flux:
 * [go-demo-app](https://github.com/andreistefanciprian/go-demo-app)
 * [pod-restarter](https://github.com/andreistefanciprian/pod-restarter-go)
 * [descheduler](https://github.com/kubernetes-sigs/descheduler)
+* [secrets-store-csi-driver](https://secrets-store-csi-driver.sigs.k8s.io/introduction)
 
 ## Deploy flux and other k8s resources to GKE cluster
 
@@ -43,4 +44,9 @@ kubectl get imageupdateautomations -A
 
 kubectl -n flux-system logs -l app=helm-controller -f
 kubectl -n descheduler logs -l app.kubernetes.io/instance=descheduler -f
+
+# if the git token expires the flux-system/flux-system secret needs to be updated
+# replace data.password with the new token base64 value below 
+echo -n ghp_newGeneratedTokenHere | base64
+kubectl edit secret flux-system -n flux-system
 ```
