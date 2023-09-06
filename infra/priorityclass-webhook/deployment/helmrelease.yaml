@@ -15,4 +15,4 @@ spec:
   values:
     image:
       repository: andreistefanciprian/k8s-priorityclass-webhook
-      tag: 757446bd322828377f490adeef2ce514d0849d38-38 # {"$imagepolicy": "flux-system:priorityclass-webhook:tag"}
+      tag: b8e8da02dce31fef6e1d32820bd4c68e15f4f254-39 # {"$imagepolicy": "flux-system:priorityclass-webhook:tag"}
