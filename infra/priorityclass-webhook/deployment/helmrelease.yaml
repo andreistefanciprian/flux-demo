@@ -1,0 +1,18 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: priorityclass-webhook
+spec:
+  interval: 1m0s
+  releaseName: priorityclass-webhook
+  chart:
+    spec:
+      chart: ./infra/priorityclass-webhook
+      sourceRef:
+        kind: GitRepository
+        name: priorityclass-webhook
+        namespace: flux-system
+  values:
+    image:
+      repository: andreistefanciprian/k8s-priorityclass-webhook
+      tag: 757446bd322828377f490adeef2ce514d0849d38-38 # {"$imagepolicy": "flux-system:priorityclass-webhook:tag"}
