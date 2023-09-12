@@ -9,13 +9,23 @@ spec:
   secretRef:
     name: regcred
 ---
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImageRepository
+metadata:
+  name: go-demo-app-chart
+spec:
+  image: australia-southeast2-docker.pkg.dev/esoteric-code-394122/cmek-helm-charts/go-demo-app
+  interval: 5m0s
+  secretRef:
+    name: regcred
+---
 apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImagePolicy
 metadata:
   name: go-demo-app-chart
 spec:
-  helmRepositoryRef:
-    name: go-demo-app
+  imageRepositoryRef:
+    name: go-demo-app-chart
   filterTags:
     pattern: 'v[0-9]+\.[0-9]+-(?P<ts>[0-9]+)'
     extract: '$ts'
