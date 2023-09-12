@@ -16,4 +16,4 @@ spec:
   values:
     image:
       repository: australia-southeast2-docker.pkg.dev/esoteric-code-394122/cmek-container-images/dev/go-demo-app
-      tag: 9afedc6e220f780d72b8fd32ed65770d9d7488c8-23 # {"$imagepolicy": "flux-system:go-demo-app:tag"}
+      tag: 9afedc6e220f780d72b8fd32ed65770d9d7488c8-24 # {"$imagepolicy": "flux-system:go-demo-app:tag"}
