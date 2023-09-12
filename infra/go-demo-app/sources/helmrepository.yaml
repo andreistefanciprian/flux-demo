@@ -1,0 +1,10 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: go-demo-app
+spec:
+  type: oci
+  interval: 5m0s
+  url: oci://australia-southeast2-docker.pkg.dev/esoteric-code-394122/cmek-helm-charts
+  secretRef:
+    name: regcred

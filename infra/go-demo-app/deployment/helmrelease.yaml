@@ -7,9 +7,9 @@ spec:
   releaseName: go-demo-app
   chart:
     spec:
-      chart: ./infra/go-demo-app
+      chart: go-demo-app
       sourceRef:
-        kind: GitRepository
+        kind: HelmRepository
         name: go-demo-app
         namespace: flux-system
   values:
