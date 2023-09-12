@@ -8,3 +8,17 @@ spec:
   url: oci://australia-southeast2-docker.pkg.dev/esoteric-code-394122/cmek-helm-charts
   secretRef:
     name: regcred
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: go-demo-app-chart
+spec:
+  helmRepositoryRef:
+    name: go-demo-app
+  filterTags:
+    pattern: 'v[0-9]+\.[0-9]+-(?P<ts>[0-9]+)'
+    extract: '$ts'
+  policy:
+    numerical:
+      order: asc
