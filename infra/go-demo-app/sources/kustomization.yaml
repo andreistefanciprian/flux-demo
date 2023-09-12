@@ -4,3 +4,4 @@ namespace: flux-system
 resources:
 - gitrepository.yaml
 - image_policy.yaml
+- helmrepository.yaml
