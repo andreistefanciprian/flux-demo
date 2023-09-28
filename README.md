@@ -29,6 +29,9 @@ flux bootstrap github \
   --personal \
   --token-auth \
   --reconcile=true
+
+# trigger cronjob for GAR secret
+kubectl create job --from=cronjob/gcr-credentials-sync -n flux-system gcr-credentials-sync-init
 ```
 
 ## Debug commands
