@@ -1,0 +1,8 @@
+apiVersion: cas-issuer.jetstack.io/v1beta1
+kind: GoogleCASClusterIssuer
+metadata:
+  name: googlecasclusterissuer
+spec:
+  project: mindful-carport-400400
+  location: australia-southeast2
+  caPoolId: my-pool

@@ -4,3 +4,4 @@ namespace: cert-manager
 resources:
 - helmrelease.yaml
 - namespace.yaml
+- cas-issuer.yaml
