@@ -14,7 +14,9 @@ spec:
         name: istio
         namespace: flux-system
   dependsOn:
-    - name: istio-system/istio
-    - name: istio-system/istiod
+    - name: istio
+      namespace: istio-system
+    - name: istiod
+      namespace: istio-system
   values:
   
