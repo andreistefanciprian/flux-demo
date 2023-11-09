@@ -3,4 +3,3 @@ kind: Kustomization
 resources:
 - gar-secret.yaml
 - script.yaml
-- test.yaml
