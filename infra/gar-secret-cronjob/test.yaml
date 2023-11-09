@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test
+  namespace: flux-system
+spec:
+  selector:
+    matchLabels:
+      app: test
+  template:
+    metadata:
+      labels:
+        app: test
+    spec:
+      volumes:
+      - name: test-script
+        configMap:
+          name: bash-script
+          defaultMode: 0777
+      containers:
+      - command:
+        - sleep
+        - infinity
+        image: ubuntu
+        name: locust
+        volumeMounts:
+          - mountPath: /test-script
+            name: test-script

@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name:  bash-script
+  namespace: flux-system
+data:
+  create-secret.sh: |
+    kubectl create secret docker-registry $SECRET_NAME \
+    --dry-run=client \
+    --docker-server="$GCR_REGISTRY" \
+    --docker-username=oauth2accesstoken \
+    --docker-password="$(gcloud auth print-access-token)" \
+    -o yaml | kubectl apply -f -
