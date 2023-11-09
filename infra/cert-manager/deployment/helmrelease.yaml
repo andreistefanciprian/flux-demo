@@ -47,5 +47,5 @@ spec:
     priorityClassName: high-priority-nonpreempting
     serviceAccount:
       annotations:
-        iam.gke.io/gcp-service-account: cas-issuer@mindful-carport-400400.iam.gserviceaccount.com
+        iam.gke.io/gcp-service-account: "cas-issuer@${GCP_PROJECT}.iam.gserviceaccount.com"
 

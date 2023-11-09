@@ -3,6 +3,6 @@ kind: GoogleCASClusterIssuer
 metadata:
   name: googlecasclusterissuer
 spec:
-  project: mindful-carport-400400
+  project: "${GCP_PROJECT}"
   location: australia-southeast2
   caPoolId: my-pool
