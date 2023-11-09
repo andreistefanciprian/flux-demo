@@ -7,6 +7,10 @@ spec:
   interval: 1m0s
   path: ./infra/go-demo-app
   prune: true
+  postBuild:
+    substituteFrom:
+      - kind: ConfigMap
+        name: cluster-vars
   sourceRef:
     kind: GitRepository
     name: flux-system

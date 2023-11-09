@@ -3,7 +3,7 @@ kind: ImageRepository
 metadata:
   name: go-demo-app
 spec:
-  image: australia-southeast2-docker.pkg.dev/mindful-carport-400400/cmek-container-images/dev/go-demo-app
+  image: "australia-southeast2-docker.pkg.dev/${GCP_PROJECT}/cmek-container-images/dev/go-demo-app"
   interval: 1m0s
   secretRef:
     name: regcred
