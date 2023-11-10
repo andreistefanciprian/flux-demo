@@ -1,22 +1,22 @@
-name: Prod Auto-PR
+name: Create Pull Request on Push to PROD
 on:
   push:
     branches:
       - production
 
 permissions:
+  contents: write
   pull-requests: write
 
 jobs:
   pull-request:
     name: Open PR to main
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
     steps:
-      - uses: actions/checkout@v3
-      - name: pull-request
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: create pull-request
         run: |
           gh pr create --title "Push to Prod GAR" --body "Push new container image or helm chart to Google Artifact Registry" --reviewer andreistefanciprian || gh pr edit --title "Push to Prod GAR" --body "Push new container image or helm chart to Google Artifact Registry"
         env:
