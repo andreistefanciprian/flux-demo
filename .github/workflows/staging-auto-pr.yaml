@@ -15,4 +15,4 @@ jobs:
       - name: pull-request
         run: |
           gh_pr_up() { gh pr create $* || gh pr edit $* }
-          gh_pr_up --title "Push to prod" --body "Push new tag to prod helm/container registry"
+          gh_pr_up --title "Push to prod" --body "Push new tag to prod GAR"
