@@ -17,6 +17,8 @@ jobs:
       - uses: actions/checkout@v3
       - name: pull-request
         run: |
-          gh pr create --title "Push to prod" --body "Push new tag to prod GAR" --reviewer andreistefanciprian || gh pr edit --title "Push to prod" --body "Push new tag to prod GAR"
+          gh pr create --title $PR_TITLE --body $PR_BODY --reviewer andreistefanciprian || gh pr edit --title $PR_TITLE --body $PR_BODY
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_TITLE: "Push new container image or helm chart to Google Artifact Registry"
+          PR_BODY: "Push new container image or helm chart to Google Artifact Registry. This PR was created automatically by a GitHub Action. Flux will deploy the new image or helm chart to the production cluster."
