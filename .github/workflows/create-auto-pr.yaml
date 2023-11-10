@@ -1,0 +1,19 @@
+name: Push to PROD
+on:
+  push:
+    branches:
+      - production
+jobs:
+  updateAuthors:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          commit-message: update authors
+          title: Update PROD tag(s)
+          body: Push new image or helm chart to Google Artifact Registry
+          branch: production
