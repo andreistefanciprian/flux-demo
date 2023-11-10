@@ -14,4 +14,6 @@ jobs:
       - uses: actions/checkout@v3
       - name: pull-request
         run: |
-          gh pr create --title "Push to prod" --body "Push new tag to prod GAR" --reviewer andreistefanciprian || gh pr edit --title "Push to prod" --body "Push new tag to prod GAR" --reviewer andreistefanciprian
+          gh pr create --title "Push to prod" --body "Push new tag to prod GAR" --reviewer andreistefanciprian || gh pr edit --title "Push to prod" --body "Push new tag to prod GAR"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
