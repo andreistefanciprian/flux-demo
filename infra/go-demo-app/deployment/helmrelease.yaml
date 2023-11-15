@@ -13,6 +13,10 @@ spec:
         kind: HelmRepository
         name: go-demo-app
         namespace: flux-system
+  rollback:
+    cleanupOnFail: true
+    recreate: true
+    force: true
   values:
     image:
       repository: "australia-southeast2-docker.pkg.dev/${GCP_PROJECT}/cmek-container-images/dev/go-demo-app"
