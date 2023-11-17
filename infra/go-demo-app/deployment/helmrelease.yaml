@@ -17,6 +17,7 @@ spec:
     cleanupOnFail: true
     recreate: true
     force: true
+    timeout: 5m0s
   values:
     image:
       repository: "australia-southeast2-docker.pkg.dev/${GCP_PROJECT}/cmek-container-images/dev/go-demo-app"
