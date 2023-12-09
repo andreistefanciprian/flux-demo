@@ -35,6 +35,8 @@ spec:
       kind: Deployment
       name: vote
       namespace: instavote
+  dependsOn:
+    - name: instavote-redis
 ---
 apiVersion: v1
 kind: Namespace
