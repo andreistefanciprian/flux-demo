@@ -4,4 +4,4 @@ metadata:
   name: cluster-vars
   namespace: flux-system
 data:
-  GCP_PROJECT: spry-firefly-404421
+  GCP_PROJECT: tidal-osprey-407103
