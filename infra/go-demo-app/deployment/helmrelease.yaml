@@ -8,7 +8,7 @@ spec:
   chart:
     spec:
       chart: go-demo-app
-      version: v0.1.0-73 # {"$imagepolicy": "flux-system:go-demo-app-chart:tag"}
+      version: v0.1.0-75 # {"$imagepolicy": "flux-system:go-demo-app-chart:tag"}
       sourceRef:
         kind: HelmRepository
         name: go-demo-app
@@ -21,4 +21,4 @@ spec:
   values:
     image:
       repository: "australia-southeast2-docker.pkg.dev/${GCP_PROJECT}/cmek-container-images/dev/go-demo-app"
-      tag: 61e984d90bcad8df645e9e5b0d91c94f6373a48a-40 # {"$imagepolicy": "flux-system:go-demo-app:tag"}
+      tag: 61e984d90bcad8df645e9e5b0d91c94f6373a48a-42 # {"$imagepolicy": "flux-system:go-demo-app:tag"}
