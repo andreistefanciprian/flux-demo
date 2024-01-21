@@ -4,4 +4,4 @@ metadata:
   name: cluster-vars
   namespace: flux-system
 data:
-  GCP_PROJECT: tidal-osprey-407103
+  GCP_PROJECT: learned-pier-410003
