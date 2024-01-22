@@ -43,6 +43,8 @@ spec:
     crds: CreateReplace
   upgrade:
     crds: CreateReplace
+  dependsOn:
+    - name: cert-manager
   values:
     priorityClassName: high-priority-nonpreempting
     serviceAccount:
