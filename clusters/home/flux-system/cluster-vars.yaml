@@ -4,4 +4,4 @@ metadata:
   name: cluster-vars
   namespace: flux-system
 data:
-  GCP_PROJECT: learned-pier-410003
+  GCP_PROJECT: generated-area-412000
