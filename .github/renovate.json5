@@ -1,0 +1,5 @@
+{
+  "kubernetes": {
+    "fileMatch": ["^infra/go-demo-app/deployment/helmrelease\\.yaml$"]
+  }
+}
