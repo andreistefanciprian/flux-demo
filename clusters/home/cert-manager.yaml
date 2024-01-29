@@ -37,7 +37,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1m0s
-  path: ./infra/cert-manager/cas-issuer/cas-issuer-config
+  path: ./infra/cert-manager/cas-issuer-config
   prune: true
   postBuild:
     substituteFrom:
