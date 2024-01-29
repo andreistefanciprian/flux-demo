@@ -1,0 +1,27 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: google-cas-issuer
+spec:
+  interval: 5m0s
+  releaseName: google-cas-issuer
+  chart:
+    spec:
+      chart: cert-manager-google-cas-issuer
+      version: v0.7.1
+      sourceRef:
+        kind: HelmRepository
+        name: jetstack-charts
+        namespace: flux-system
+  install:
+    crds: CreateReplace
+  upgrade:
+    crds: CreateReplace
+  dependsOn:
+    - name: cert-manager
+  values:
+    priorityClassName: high-priority-nonpreempting
+    serviceAccount:
+      annotations:
+        iam.gke.io/gcp-service-account: "cas-issuer@${GCP_PROJECT}.iam.gserviceaccount.com"
+
