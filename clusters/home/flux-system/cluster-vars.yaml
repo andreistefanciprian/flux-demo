@@ -4,4 +4,4 @@ metadata:
   name: cluster-vars
   namespace: flux-system
 data:
-  GCP_PROJECT: generated-area-412000
+  GCP_PROJECT: ringed-prism-416405
