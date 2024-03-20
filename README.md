@@ -19,6 +19,9 @@ K8s resources to be deployed with flux:
 export GITHUB_TOKEN=<GITHUB_TOKEN_WITH_REPO_PERMISSIONS>
 export GITHUB_USER=andreistefanciprian
 
+# Note: update GCP_PROJECT var in clusters/home/flux-system/cluster-vars.yaml
+# vars in this config map get propagated in the app flux manifests. 
+
 # install flux into cluster
 flux bootstrap github \
   --components-extra=image-reflector-controller,image-automation-controller \
