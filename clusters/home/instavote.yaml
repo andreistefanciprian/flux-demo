@@ -24,7 +24,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1m0s
-  path: ./deploy/vote
+  path: ./deploy/vote/dev
   prune: true
   sourceRef:
     kind: GitRepository
