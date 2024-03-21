@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1m0s
-  path: ./deploy/redis
+  path: ./deploy/redis/staging
   prune: true
   sourceRef:
     kind: GitRepository
