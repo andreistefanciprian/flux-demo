@@ -1,0 +1,44 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: instavote-redis-staging
+  namespace: flux-system
+spec:
+  interval: 1m0s
+  path: ./deploy/redis
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: instavote
+  targetNamespace: instavote-staging
+  healthChecks:
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: redis
+      namespace: instavote-staging
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: instavote-vote
+  namespace: flux-system
+spec:
+  interval: 1m0s
+  path: ./deploy/vote/staging
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: instavote
+  targetNamespace: instavote-staging
+  healthChecks:
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: vote
+      namespace: instavote-staging
+  dependsOn:
+    - name: instavote-redis-staging
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: instavote-staging
