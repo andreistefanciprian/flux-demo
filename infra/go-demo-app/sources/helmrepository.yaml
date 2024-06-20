@@ -8,6 +8,7 @@ spec:
   url: "oci://australia-southeast2-docker.pkg.dev/${GCP_PROJECT}/cmek-helm-charts"
   # secretRef:
   #   name: regcred
+  provider: gcp
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImageRepository
@@ -18,6 +19,7 @@ spec:
   interval: 5m0s
   # secretRef:
   #   name: regcred
+  provider: gcp
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImagePolicy
