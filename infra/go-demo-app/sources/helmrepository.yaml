@@ -8,7 +8,7 @@ spec:
   url: "oci://australia-southeast2-docker.pkg.dev/${GCP_PROJECT}/cmek-helm-charts"
   provider: gcp
 ---
-apiVersion: image.toolkit.fluxcd.io/v1beta1
+apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImageRepository
 metadata:
   name: go-demo-app-chart
