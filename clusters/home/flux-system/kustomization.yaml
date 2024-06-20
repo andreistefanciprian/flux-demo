@@ -4,3 +4,12 @@ resources:
 - gotk-components.yaml
 - gotk-sync.yaml
 - cluster-vars.yaml
+patches:
+  - target:
+      kind: ServiceAccount
+      name: "(source-controller|image-reflector-controller)"
+    path: _patches/gar-workload-identity.yaml
+  - target:
+      kind: ServiceAccount
+      name: "kustomize-controller"
+    path: _patches/gar-workload-identity.yaml
