@@ -15,7 +15,6 @@ metadata:
 spec:
   image: "australia-southeast2-docker.pkg.dev/${GCP_PROJECT}/cmek-helm-charts/go-demo-app"
   interval: 5m0s
-  provider: gcp
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImagePolicy
