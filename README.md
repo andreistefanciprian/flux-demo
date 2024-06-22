@@ -22,7 +22,7 @@ export GITHUB_USER=andreistefanciprian
 # Note: update GCP_PROJECT var in clusters/home/flux-system/cluster-vars.yaml
 # vars in this config map get propagated in the app flux manifests.
 
-# Note: update GCP_PROJECT var in clusters/home/flux-system/_patches/gar-workload-identity.yaml and clusters/home/watchlist-slack-bot.yaml
+# Note: update GCP_PROJECT var in clusters/home/flux-system/_patches/gar-workload-identity.yaml
 
 # install flux into cluster
 flux bootstrap github \
