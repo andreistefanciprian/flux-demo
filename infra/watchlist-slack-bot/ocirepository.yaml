@@ -1,0 +1,10 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: OCIRepository
+metadata:
+  name: watchlist-slack-bot
+spec:
+  interval: 10m
+  url: oci://australia-southeast2-docker.pkg.dev/${GCP_PROJECT}/manifests/watchlist-slack-bot
+  ref:
+    tag: latest
+  provider: gcp
