@@ -8,7 +8,7 @@ spec:
   chart:
     spec:
       chart: go-demo-app
-      version: v0.1.0-main-5922a723-1719132587 # {"$imagepolicy": "flux-system:go-demo-app-chart:tag"}
+      version: v0.1.0-main-5922a723-1719132976 # {"$imagepolicy": "flux-system:go-demo-app-chart:tag"}
       sourceRef:
         kind: HelmRepository
         name: go-demo-app
