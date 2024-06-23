@@ -3,8 +3,8 @@ kind: ImageRepository
 metadata:
   name: go-demo-app
 spec:
-  image: "australia-southeast2-docker.pkg.dev/${GCP_PROJECT}/cmek-container-images/dev/go-demo-app"
-  interval: 1m0s
+  image: "australia-southeast2-docker.pkg.dev/${GCP_PROJECT}/cmek-container-images/go-demo-app"
+  interval: 5m0s
   provider: gcp
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta2
@@ -15,7 +15,7 @@ spec:
   imageRepositoryRef:
     name: go-demo-app
   filterTags:
-    pattern: '[a-f0-9]+-(?P<ts>[0-9]+)'
+    pattern: '^[a-zA-Z0-9]+-[a-fA-F0-9]+-(?P<ts>[0-9]+)'
     extract: '$ts'
   policy:
     numerical:
