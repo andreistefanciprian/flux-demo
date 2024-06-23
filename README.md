@@ -20,7 +20,9 @@ export GITHUB_TOKEN=<GITHUB_TOKEN_WITH_REPO_PERMISSIONS>
 export GITHUB_USER=andreistefanciprian
 
 # Note: update GCP_PROJECT var in clusters/home/flux-system/cluster-vars.yaml
-# vars in this config map get propagated in the app flux manifests. 
+# vars in this config map get propagated in the app flux manifests.
+
+# Note: update GCP_PROJECT var in clusters/home/flux-system/_patches/gar-workload-identity.yaml
 
 # install flux into cluster
 flux bootstrap github \

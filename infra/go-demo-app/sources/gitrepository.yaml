@@ -3,7 +3,7 @@ kind: GitRepository
 metadata:
   name: go-demo-app
 spec:
-  interval: 1m0s
+  interval: 5m0s
   ref:
     branch: main
   secretRef:
