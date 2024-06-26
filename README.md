@@ -25,6 +25,7 @@ export GITHUB_USER=andreistefanciprian
 # Note: update GCP_PROJECT var in clusters/home/flux-system/_patches/gar-workload-identity.yaml
 
 # install flux into cluster
+brew install fluxcd/tap/flux
 flux bootstrap github \
   --components-extra=image-reflector-controller,image-automation-controller \
   --owner=$GITHUB_USER \
@@ -34,9 +35,6 @@ flux bootstrap github \
   --personal \
   --token-auth \
   --reconcile=true
-
-# trigger cronjob for GAR secret
-kubectl create job --from=cronjob/gcr-credentials-sync -n flux-system gcr-credentials-sync-init
 ```
 
 ## Debug commands
