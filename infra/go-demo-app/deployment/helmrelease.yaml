@@ -21,4 +21,4 @@ spec:
   values:
     image:
       repository: "australia-southeast2-docker.pkg.dev/${GCP_PROJECT}/cmek-container-images/go-demo-app"
-      tag: main-ceacf21f-1744337540 # {"$imagepolicy": "flux-system:go-demo-app:tag"}
+      tag: main-ceacf21f-1744337984 # {"$imagepolicy": "flux-system:go-demo-app:tag"}
