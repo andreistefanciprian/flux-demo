@@ -4,4 +4,4 @@ metadata:
   name: cluster-vars
   namespace: flux-system
 data:
-  GCP_PROJECT: liquid-verbena-425321-k7
+  GCP_PROJECT: rich-mountain-428806-r0
