@@ -4,6 +4,8 @@ metadata:
   name: monitoring
   namespace: flux-system
 spec:
+  dependsOn:
+    - name: secrets-store-csi-driver
   interval: 1m0s
   path: ./infra/monitoring/kube-state-metrics
   prune: true

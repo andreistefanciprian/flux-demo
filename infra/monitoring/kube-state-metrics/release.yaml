@@ -27,6 +27,11 @@ spec:
   values:
     alertmanager:
       enabled: true
+      serviceAccount:
+        create: true
+        name: alertmanager
+        annotations:
+          iam.gke.io/gcp-service-account: "secrets-reader@${GCP_PROJECT}.iam.gserviceaccount.com"
       config:
         route:
           group_by: ['alertname', 'component']
@@ -66,8 +71,17 @@ spec:
               {{ end }}
             send_resolved: true
       alertmanagerSpec:
-        secrets:
-        - slack-webhook
+        volumes:
+        - name: slack-webhook-csi
+          csi:
+            driver: secrets-store.csi.k8s.io
+            readOnly: true
+            volumeAttributes:
+              secretProviderClass: slack-webhook
+        volumeMounts:
+        - name: slack-webhook-csi
+          mountPath: /etc/alertmanager/secrets/slack-webhook
+          readOnly: true
     prometheus:
       prometheusSpec:
         podMonitorNamespaceSelector: { }
