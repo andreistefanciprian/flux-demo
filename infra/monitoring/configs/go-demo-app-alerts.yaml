@@ -11,8 +11,8 @@ spec:
     interval: 30s
     rules:
     - alert: GoDemoAppHelmReleaseNotReady
-      expr: gotk_resource_info{chart_source_name="go-demo-app",customresource_group="helm.toolkit.fluxcd.io",customresource_kind="HelmRelease",customresource_version="v2",exported_namespace="go-demo-app",name="go-demo-app",ready="False"} == 1
-      for: 5m
+      expr: gotk_resource_info{customresource_kind="HelmRelease",exported_namespace="go-demo-app",name="go-demo-app",ready="False"} == 1
+      for: 1m
       labels:
         severity: warning
         component: go-demo-app
@@ -23,7 +23,7 @@ spec:
         runbook_url: "https://fluxcd.io/docs/components/helm/helmreleases/"
     
     - alert: GoDemoAppHelmReleaseSuspended
-      expr: gotk_resource_info{chart_source_name="go-demo-app",customresource_group="helm.toolkit.fluxcd.io",customresource_kind="HelmRelease",customresource_version="v2",exported_namespace="go-demo-app",name="go-demo-app",suspended="true"} == 1
+      expr: gotk_resource_info{customresource_kind="HelmRelease",exported_namespace="go-demo-app",name="go-demo-app",suspended="true"} == 1
       for: 1m
       labels:
         severity: info
