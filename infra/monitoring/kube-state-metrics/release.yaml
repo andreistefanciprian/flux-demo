@@ -33,6 +33,10 @@ spec:
         podMonitorSelector:
           matchLabels:
             app.kubernetes.io/component: monitoring
+        ruleNamespaceSelector: { }
+        ruleSelector:
+          matchLabels:
+            app.kubernetes.io/component: monitoring
     grafana:
       enabled: true
       defaultDashboardsEnabled: true
