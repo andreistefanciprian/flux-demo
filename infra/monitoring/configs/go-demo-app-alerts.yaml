@@ -11,7 +11,7 @@ spec:
     interval: 30s
     rules:
     - alert: GoDemoAppHelmReleaseNotReady
-      expr: gotk_resource_info{customresource_kind="HelmRelease",exported_namespace="go-demo-app",name="go-demo-app",ready="False"} == 1
+      expr: gotk_resource_info{customresource_kind="HelmRelease",exported_namespace="go-demo-app",name="go-demo-app",ready!="True"} == 1
       for: 1m
       labels:
         severity: warning
