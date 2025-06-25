@@ -27,6 +27,47 @@ spec:
   values:
     alertmanager:
       enabled: true
+      config:
+        route:
+          group_by: ['alertname', 'component']
+          group_wait: 10s
+          group_interval: 10s
+          repeat_interval: 1h
+          receiver: 'default'
+          routes:
+          - match:
+              component: go-demo-app
+            receiver: 'go-demo-app-notifications'
+        receivers:
+        - name: 'default'
+          slack_configs:
+          - api_url_file: /etc/alertmanager/secrets/slack-webhook/url
+            channel: '#k8s-alerts'
+            title: 'Alert: {{ .GroupLabels.alertname }}'
+            text: |
+              {{ range .Alerts }}
+              *Alert:* {{ .Annotations.summary }}
+              *Description:* {{ .Annotations.description }}
+              *Labels:* {{ range .Labels.SortedPairs }}{{ .Name }}={{ .Value }} {{ end }}
+              {{ end }}
+            send_resolved: true
+        - name: 'go-demo-app-notifications'
+          slack_configs:
+          - api_url_file: /etc/alertmanager/secrets/slack-webhook/url
+            channel: '#k8s-alerts'
+            title: '[Go Demo App] {{ .GroupLabels.alertname }}'
+            text: |
+              {{ range .Alerts }}
+              *Alert:* {{ .Annotations.summary }}
+              *Description:* {{ .Annotations.description }}
+              *Severity:* {{ .Labels.severity }}
+              *Namespace:* {{ .Labels.namespace }}
+              {{ if .Annotations.runbook_url }}*Runbook:* {{ .Annotations.runbook_url }}{{ end }}
+              {{ end }}
+            send_resolved: true
+      alertmanagerSpec:
+        secrets:
+        - slack-webhook
     prometheus:
       prometheusSpec:
         podMonitorNamespaceSelector: { }
