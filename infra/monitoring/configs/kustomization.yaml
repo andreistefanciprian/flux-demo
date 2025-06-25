@@ -4,6 +4,7 @@ namespace: monitoring
 resources:
   - podmonitor.yaml
   - go-demo-app-alerts.yaml
+  - slack-webhook-secret.yaml
 configMapGenerator:
   - name: flux-grafana-dashboards
     files:
