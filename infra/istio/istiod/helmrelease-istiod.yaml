@@ -22,4 +22,8 @@ spec:
       accessLogEncoding: JSON
       outboundTrafficPolicy:
         mode: REGISTRY_ONLY
+    pilot:
+      env:
+        EXTERNAL_ISTIOD: false
+        PILOT_ENABLE_GATEWAY_API: true
   

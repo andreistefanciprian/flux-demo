@@ -1,0 +1,9 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: OCIRepository
+metadata:
+  name: gateway-api-crds
+spec:
+  interval: 5m
+  url: oci://ghcr.io/kubernetes-sigs/gateway-api/install
+  ref:
+    tag: v1.3.0
