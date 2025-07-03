@@ -1,0 +1,13 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: gateway-api-crds
+spec:
+  interval: 5m
+  sourceRef:
+    kind: OCIRepository
+    name: gateway-api-crds
+    namespace: flux-system
+  path: "./standard"
+  prune: true
+  wait: true
