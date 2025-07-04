@@ -7,6 +7,9 @@ spec:
   interval: 1m0s
   path: ./infra/go-demo-app
   prune: true
+  dependsOn:
+    - name: istio
+    - name: gateway-api
   postBuild:
     substituteFrom:
       - kind: ConfigMap

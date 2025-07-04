@@ -5,3 +5,4 @@ metadata:
   namespace: flux-system
 data:
   GCP_PROJECT: effortless-city-458902-q8
+  CLUSTER_DOMAIN: demo.example.com

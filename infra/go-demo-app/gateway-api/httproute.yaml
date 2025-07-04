@@ -1,0 +1,18 @@
+apiVersion: gateway.networking.k8s.io/v1beta1
+kind: HTTPRoute
+metadata:
+  name: go-demo-app-route
+  namespace: go-demo-app
+spec:
+  parentRefs:
+  - name: go-demo-app-gateway
+  hostnames:
+  - "go-demo-app.${CLUSTER_DOMAIN}"
+  rules:
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /
+    backendRefs:
+    - name: go-demo-app
+      port: 80
