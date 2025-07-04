@@ -5,9 +5,9 @@ metadata:
 spec:
   interval: 5m
   sourceRef:
-    kind: OCIRepository
-    name: gateway-api-crds
+    kind: GitRepository
+    name: gateway-api
     namespace: flux-system
-  path: "./standard"
+  path: "./config/crd/standard"
   prune: true
   wait: true
