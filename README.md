@@ -54,8 +54,6 @@ This repository contains Kubernetes manifests managed by [FluxCD](https://fluxcd
 
 ## 🔍 Monitoring & Debugging
 
-### Check Flux Resources
-
 ```bash
 # View all Flux resources
 kubectl get kustomizations -A
@@ -68,42 +66,17 @@ kubectl get imageupdateautomations -A
 # Check Helm releases
 helm list -A
 helm get manifest <release-name>
-```
 
-### Reconcile Resources
-
-```bash
 # Force reconciliation of a specific app
 flux reconcile kustomization <app-name> --with-source
 
-# Example:
-flux reconcile kustomization secrets-store-csi-driver --with-source
-```
-
-### View Logs
-
-```bash
 # Flux controller logs
 kubectl -n flux-system logs -l app=helm-controller -f
 
-# Application logs (example: descheduler)
-kubectl -n descheduler logs -l app.kubernetes.io/instance=descheduler -f
-```
-
-### Delete an Application
-
-```bash
+# Delete application
 kubectl delete kustomization <app-name> -n flux-system
 
-# Example:
-kubectl delete kustomization secrets-store-csi-driver -n flux-system
-```
-
-## 🔐 Token Management
-
-If your GitHub token expires, update the Flux secret:
-
-```bash
+# If your GitHub token expires, update the Flux secret
 # Generate base64 encoded token
 echo -n 'ghp_yourNewTokenHere' | base64
 
