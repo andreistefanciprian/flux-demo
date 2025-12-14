@@ -4,5 +4,5 @@ metadata:
   name: cluster-vars
   namespace: flux-system
 data:
-  GCP_PROJECT: effortless-city-458902-q8
+  GCP_PROJECT: arctic-column-480422-n4
   CLUSTER_DOMAIN: demo.example.com
