@@ -4,13 +4,12 @@
 The k8s resources associated with this repository can be deployed in a [private GKE cluster](https://github.com/andreistefanciprian/terraform-kubernetes-gke-cluster).
 
 K8s resources to be deployed with flux:
-* fluxcd
-* istio
-* prometheus
+* [fluxcd](https://fluxcd.io/flux/)
+* [istio](https://github.com/istio/istio/tree/master/manifests/charts)
+* [kube-prometheus-stack](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack)
 * [cert-manager](https://cert-manager.io/docs/installation/helm/) (used for automatic management and issuance of TLS certificates)
 * [go-demo-app](https://github.com/andreistefanciprian/go-demo-app)
 * [pod-restarter](https://github.com/andreistefanciprian/pod-restarter-go)
-* [descheduler](https://github.com/kubernetes-sigs/descheduler)
 * [secrets-store-csi-driver](https://secrets-store-csi-driver.sigs.k8s.io/introduction)
 
 ## Deploy flux and other k8s resources to GKE cluster
@@ -20,7 +19,7 @@ export GITHUB_TOKEN=<GITHUB_TOKEN_WITH_REPO_PERMISSIONS>
 export GITHUB_USER=andreistefanciprian
 
 # Note: update GCP_PROJECT var in clusters/home/flux-system/cluster-vars.yaml
-# vars in this config map get propagated in the app flux manifests.
+# vars in this config map get propagated across manifests in the ./infra folder
 
 # Note: update GCP_PROJECT var in clusters/home/flux-system/_patches/gar-workload-identity.yaml
 
