@@ -9,7 +9,7 @@ spec:
   prune: true
   dependsOn:
     - name: istio
-    - name: gateway-api
+    - name: gateway-api-crds
   postBuild:
     substituteFrom:
       - kind: ConfigMap
