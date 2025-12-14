@@ -27,3 +27,4 @@ spec:
   path: "./config/crd/standard"
   prune: true
   wait: true
+  force: true
