@@ -3,4 +3,4 @@ kind: ServiceAccount
 metadata:
   name: controller
   annotations:
-    iam.gke.io/gcp-service-account: flux-gar-authenticator@effortless-city-458902-q8.iam.gserviceaccount.com  
+    iam.gke.io/gcp-service-account: flux-gar-authenticator@arctic-column-480422-n4.iam.gserviceaccount.com  
