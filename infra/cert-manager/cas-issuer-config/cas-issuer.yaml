@@ -4,5 +4,5 @@ metadata:
   name: googlecasclusterissuer
 spec:
   project: "${GCP_PROJECT}"
-  location: australia-southeast2
+  location: "${GCP_REGION}"
   caPoolId: my-pool

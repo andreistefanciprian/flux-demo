@@ -6,3 +6,4 @@ metadata:
 data:
   GCP_PROJECT: arctic-column-480422-n4
   CLUSTER_DOMAIN: demo.example.com
+  GCP_REGION: australia-southeast1
