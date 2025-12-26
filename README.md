@@ -17,40 +17,61 @@ This repository contains Kubernetes manifests managed by [FluxCD](https://fluxcd
 
 ### Prerequisites
 
-- GitHub personal access token with repo permissions
+- GitHub App for Flux authentication ([setup guide](https://fluxcd.io/blog/2025/04/flux-operator-github-app-bootstrap/#github-app-docs))
 - GKE cluster provisioned via [terraform](https://github.com/andreistefanciprian/terraform-kubernetes-gke-cluster)
 - `kubectl` configured to access your cluster
+- `helmfile` installed locally
 
 ### Installation Steps
 
-1. **Set environment variables:**
-   ```bash
-   export GITHUB_TOKEN=<your_github_token>
-   export GITHUB_USER=andreistefanciprian
-   ```
+#### 1. Create GitHub App Secret
 
-2. **Configure GCP project:**
-   
-   Update the `GCP_PROJECT` variable in:
-   - `clusters/home/flux-system/cluster-vars.yaml`
-   - `clusters/home/flux-system/_patches/gar-workload-identity.yaml`
-   
-   > **Note:** Variables in the ConfigMap are propagated across all manifests in the `./infra` folder.
+Follow the [Flux Operator GitHub App docs](https://fluxcd.io/blog/2025/04/flux-operator-github-app-bootstrap/#github-app-docs) to create a GitHub App, then create the Kubernetes secret:
 
-3. **Install FluxCD:**
-   ```bash
-   brew install fluxcd/tap/flux
-   
-   flux bootstrap github \
-     --components-extra=image-reflector-controller,image-automation-controller \
-     --owner=$GITHUB_USER \
-     --repository=flux-demo \
-     --branch=main \
-     --path=./clusters/home \
-     --personal \
-     --token-auth \
-     --reconcile=true
-   ```
+```bash
+flux create secret githubapp flux-system \
+  --app-id=<app_id> \
+  --app-installation-id=<app_install_id> \
+  --app-private-key=<private_key.pem>
+```
+
+#### 2. Update Configuration
+
+Update the `GCP_PROJECT` variable in:
+- `clusters/home/flux-system/cluster-vars.yaml`
+- `clusters/home/flux-system/values-flux-instance.yaml`
+
+> **Note:** Variables in the ConfigMap are propagated across all manifests in the `./infra` folder.
+
+#### 3. Deploy Flux Operator
+
+```bash
+# Preview changes
+helmfile -f clusters/home/flux-system/helmfile.yaml diff -l name=flux-operator
+
+# Deploy operator
+helmfile -f clusters/home/flux-system/helmfile.yaml apply -l name=flux-operator
+```
+
+#### 4. Deploy Flux Instance
+
+```bash
+# Preview changes
+helmfile -f clusters/home/flux-system/helmfile.yaml diff -l name=flux-instance
+
+# Deploy instance
+helmfile -f clusters/home/flux-system/helmfile.yaml apply -l name=flux-instance
+```
+
+#### 5. Access Flux Operator UI
+
+```bash
+# Forward port to access the operator UI
+kubectl port-forward svc/flux-operator -n flux-system 9080:9080
+
+# Open in browser: http://localhost:9080
+```
+
 
 ## 🔍 Monitoring & Debugging
 

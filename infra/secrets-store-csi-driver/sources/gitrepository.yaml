@@ -1,4 +1,4 @@
-apiVersion: source.toolkit.fluxcd.io/v1beta2
+apiVersion: source.toolkit.fluxcd.io/v1
 kind: GitRepository
 metadata:
   name: secrets-store-csi-driver-provider-gcp
@@ -8,4 +8,5 @@ spec:
     branch: main
   secretRef:
     name: flux-system
+  provider: github
   url: https://github.com/GoogleCloudPlatform/secrets-store-csi-driver-provider-gcp.git

@@ -1,0 +1,34 @@
+instance:
+  distribution:
+    version: "2.x"
+  components: # @schema item: string; uniqueItems: true; itemEnum: [source-controller,kustomize-controller,helm-controller,notification-controller,image-reflector-controller,image-automation-controller,source-watcher]
+    - source-controller
+    - kustomize-controller
+    - helm-controller
+    - notification-controller
+    - image-reflector-controller
+    - image-automation-controller
+    - source-watcher
+  sync:
+    kind: GitRepository
+    url: "https://github.com/andreistefanciprian/flux-demo"
+    ref: "refs/heads/main"
+    provider: github
+    pullSecret: flux-system
+    path: "clusters/home"
+  kustomize:
+    patches:
+      - target:
+          kind: Deployment
+          name: "(kustomize-controller|helm-controller|source-controller|notification-controller)"
+        patch: |
+          - op: add
+            path: /spec/template/spec/containers/0/args/-
+            value: --concurrent=10
+      - target:
+          kind: ServiceAccount
+          name: "(source-controller|image-reflector-controller|kustomize-controller)"
+        patch: |
+          - op: add
+            path: /metadata/annotations/iam.gke.io~1gcp-service-account
+            value: flux-gar-authenticator@arctic-column-480422-n4.iam.gserviceaccount.com 
