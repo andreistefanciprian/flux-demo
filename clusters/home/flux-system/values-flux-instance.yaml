@@ -30,6 +30,5 @@ instance:
           name: "(source-controller|image-reflector-controller|kustomize-controller)"
         patch: |
           - op: add
-            path: /metadata/annotations
-            value:
-              iam.gke.io/gcp-service-account: flux-gar-authenticator@arctic-column-480422-n4.iam.gserviceaccount.com 
+            path: /metadata/annotations/iam.gke.io~1gcp-service-account
+            value: flux-gar-authenticator@arctic-column-480422-n4.iam.gserviceaccount.com 
