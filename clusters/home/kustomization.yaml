@@ -13,8 +13,8 @@ resources:
   - istio.yaml
   - monitoring.yaml
   
-  # # Security & Policy
-  # - priorityclasses.yaml
+  # Security & Policy
+  - priorityclasses.yaml
   # - priorityclass-webhook.yaml
   
   # # Utilities
