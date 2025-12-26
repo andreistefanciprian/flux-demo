@@ -13,3 +13,9 @@ configMapGenerator:
   - name: flux-instance-values
     files:
       - values.yaml=values-flux-instance.yaml
+    options:
+      disableNameSuffixHash: false
+
+# This tells Kustomize to update ConfigMap references in HelmRelease
+configurations:
+  - kustomizeconfig.yaml
