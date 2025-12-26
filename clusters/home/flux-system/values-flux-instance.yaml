@@ -28,4 +28,7 @@ instance:
       - target:
           kind: ServiceAccount
           name: "(source-controller|image-reflector-controller|kustomize-controller)"
-        path: _patches/gar-workload-identity.yaml
+        patch: |
+          - op: add
+            path: /metadata/annotations/iam.gke.io/gcp-service-account
+            value: flux-gar-authenticator@arctic-column-480422-n4.iam.gserviceaccount.com 
