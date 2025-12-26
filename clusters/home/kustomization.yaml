@@ -18,7 +18,7 @@ resources:
   # - priorityclass-webhook.yaml
   
   # # Utilities
-  # - gar-secret-conjob.yaml
+  # - gar-secret-cronjob.yaml
   # - pod-restarter.yaml
   # - imageupdateautomation.yaml
   
