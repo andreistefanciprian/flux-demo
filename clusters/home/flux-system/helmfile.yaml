@@ -5,10 +5,7 @@ releases:
     version: 0.38.1
     createNamespace: true
     values:
-      - serviceMonitor:
-          create: false
-          interval: 60s
-          scrapeTimeout: 30s
+      - values-flux-operator.yaml
 
   # Install FluxInstance after the operator
   - name: flux-instance

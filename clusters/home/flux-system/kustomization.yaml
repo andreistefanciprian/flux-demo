@@ -10,6 +10,11 @@ resources:
   - cluster-vars.yaml
 
 configMapGenerator:
+  - name: flux-operator-values
+    files:
+      - values.yaml=values-flux-operator.yaml
+    options:
+      disableNameSuffixHash: false
   - name: flux-instance-values
     files:
       - values.yaml=values-flux-instance.yaml
