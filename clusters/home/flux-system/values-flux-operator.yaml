@@ -1,4 +1,4 @@
 serviceMonitor:
-  create: false
+  create: true
   interval: 60s
   scrapeTimeout: 30s
