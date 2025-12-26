@@ -12,4 +12,4 @@ resources:
 configMapGenerator:
   - name: flux-instance-values
     files:
-      - values.yaml=flux-instance-values.yaml
+      - values.yaml=values-flux-instance.yaml
