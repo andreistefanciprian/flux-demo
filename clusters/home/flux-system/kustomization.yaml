@@ -1,15 +1,15 @@
+---
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+
+namespace: flux-system
+
 resources:
-- gotk-components.yaml
-- gotk-sync.yaml
-- cluster-vars.yaml
-patches:
-  - target:
-      kind: ServiceAccount
-      name: "(source-controller|image-reflector-controller)"
-    path: _patches/gar-workload-identity.yaml
-  - target:
-      kind: ServiceAccount
-      name: "kustomize-controller"
-    path: _patches/gar-workload-identity.yaml
+  - flux-operator.yaml
+  - flux-instance.yaml
+  - cluster-vars.yaml
+
+configMapGenerator:
+  - name: flux-instance-values
+    files:
+      - values.yaml=flux-instance-values.yaml

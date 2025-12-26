@@ -1,0 +1,32 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  # Flux System (Operator and Instance)
+  - flux-system
+
+  # Core Infrastructure
+  - gateway-api-crds.yaml
+  - secrets-store-csi-driver.yaml
+  - cert-manager.yaml
+  - istio.yaml
+  - monitoring.yaml
+  
+  # # Security & Policy
+  # - priorityclasses.yaml
+  # - priorityclass-webhook.yaml
+  
+  # # Utilities
+  # - gar-secret-conjob.yaml
+  # - pod-restarter.yaml
+  # - imageupdateautomation.yaml
+  
+  # # Applications
+  # - go-demo-app.yaml
+  # - instavote-dev.yaml
+  # - instavote-staging.yaml
+  # - watchlist-slack-bot.yaml
+  
+  # # Certificates
+  # - demo-cert.yaml
